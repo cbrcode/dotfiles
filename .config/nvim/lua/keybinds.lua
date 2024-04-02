@@ -2,6 +2,8 @@ local function map(m, k, v)
     vim.keymap.set(m, k, v, { silent = true })
 end
 
+map('i', '<D-c>', '<Esc>') -- mac neovim binding
+
 -- vim.api.nvim_set_keymap(, "p", ":lua trim()", { noremap = true})
 
 -- leader f's
