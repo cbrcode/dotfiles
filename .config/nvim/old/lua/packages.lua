@@ -127,11 +127,11 @@ local plugins = {
 
     { 'windwp/nvim-autopairs', event = "InsertEnter", config = true },
 
-    { "nvim-tree/nvim-web-devicons", lazy = false, tag = "nerd-v2-compat", config = function()
-            require('nvim-web-devicons').setup()
-        end,
-    },
-
+    -- { "nvim-tree/nvim-web-devicons", lazy = false, tag = "nerd-v2-compat", config = function()
+    --         require('nvim-web-devicons').setup()
+    --     end,
+    -- },
+    --
     { 'nvim-telescope/telescope.nvim', lazy = true, branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim' } },
 
     -- {
@@ -208,11 +208,11 @@ local plugins = {
     --     end,
     -- },
 
-    {
-        'b0o/incline.nvim', lazy=false, config = function()
-            require("floatingtitles")
-        end,
-    },
+    -- {
+    --     'b0o/incline.nvim', lazy=false, config = function()
+    --         require("floatingtitles")
+    --     end,
+    -- },
 
     {
         'nvim-lualine/lualine.nvim',
@@ -221,7 +221,7 @@ local plugins = {
         end
     },
 
-    {
+    
         "folke/noice.nvim",
         event = "VeryLazy",
         opts = {
@@ -310,6 +310,12 @@ local plugins = {
             },
           }
         end,
+    },
+
+    {
+      "pmizio/typescript-tools.nvim",
+      dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+      opts = {},
     },
 }
 

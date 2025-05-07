@@ -1,12 +1,12 @@
 -- Check System
-local is_wsl = (function() 
-  local output = vim.fn.systemlist "uname -r" 
-  return not not string.find(output[1] or "", "WSL")
+local is_wsl = (function()
+    local output = vim.fn.systemlist "uname -r" 
+    return not not string.find(output[1] or "", "WSL")
 end)()
 
 local is_mac = vim.fn.has("macunix") == 1
 
-local is_linux = not is_wsl and not is_mac
+-- local is_linux = not is_wsl and not is_mac
 
 -- Leader Keys
 vim.g.mapleader = ' '
@@ -17,7 +17,7 @@ local o = vim.opt
 local g = vim.g
 
 -- Faster Response Time
-g.updatetime = 50
+g.updatetime = 250
 
 -- Scrolling
 o.scrolloff=8
@@ -32,7 +32,9 @@ o.termguicolors = true
 o.signcolumn = 'yes' -- Display Sign Column
 
 o.cursorline = true -- Highlight line cursor is on
-
+vim.o.guicursor="i:block"
+-- vim.cmd[[autocmd InsertEnter * set cursorline]]
+-- vim.cmd[[autocmd InsertLeavePre * set nocursorline]]
 o.cmdheight = 0 -- Don't Display Command Line below statusbar.
 o.laststatus = 3 -- Keep One status bar fixed at bottom, with just dividers between windows
 
@@ -80,7 +82,7 @@ autocmd('TextYankPost', {
     pattern = '*',
     callback = function()
         vim.highlight.on_yank({
-            higroup = 'IncSearch', -- IncSearch, CurSearch, DiffAdd, NeoTreeTitleBar, Beacon
+            higroup = 'CurSearch', -- IncSearch, CurSearch, DiffAdd, NeoTreeTitleBar, Beacon
             timeout = 70,
         })
     end,
