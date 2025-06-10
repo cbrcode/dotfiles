@@ -38,8 +38,6 @@ return {
 
         require('lspconfig').pyright.setup({  capabilities= capabilities, settings = { pyright = { autoImportCompletion = true, }, python = { analysis = { autoSearchPaths = true, diagnosticMode = 'openFilesOnly', useLibraryCodeForTypes = true, typeCheckingMode = 'off' } } } })
 
-        require('lspconfig').emmet_language_server.setup({ capabilities = capabilities })
-
         require('lspconfig').lua_ls.setup({
             on_init = function(client)
                 local path = client.workspace_folders[1].name
@@ -72,21 +70,36 @@ return {
 
         require("lspconfig").clangd.setup({ capabilities = capabilities })
 
-        require("lspconfig").tsserver.setup({
-          init_options = {
-            plugins = {
-              {
-                name = "@vue/typescript-plugin",
-                location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
-                languages = {"javascript", "typescript", "vue"},
-              },
-            },
+        -- require("lspconfig").ts_ls.setup({
+        --   init_options = {
+        --     plugins = {
+        --       {
+        --         name = "@vue/typescript-plugin",
+        --         location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+        --         languages = {"javascript", "typescript", "vue"},
+        --       },
+        --     },
+        --   },
+        --   filetypes = {
+        --     "javascript",
+        --     "typescript",
+        --     "typescriptreact",
+        --     "vue",
+        --   },
+        -- })
+
+        require('lspconfig').emmet_language_server.setup({ capabilities = capabilities })
+
+        require("lspconfig").eslint.setup({ flags = {
+            allow_incremental_sync = false,
+            debounce_text_changes = 1000,
           },
-          filetypes = {
-            "javascript",
-            "typescript",
-            "vue",
-          },
+          on_attach = function(client, bufnr)
+            vim.api.nvim_create_autocmd("BufWritePre", {
+              buffer = bufnr,
+              command = "EslintFixAll",
+            })
+          end,
         })
     end
 }

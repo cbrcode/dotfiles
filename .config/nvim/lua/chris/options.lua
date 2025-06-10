@@ -17,7 +17,7 @@ local o = vim.opt
 local g = vim.g
 
 -- Faster Response Time
-g.updatetime = 250
+g.updatetime = 750
 
 -- Scrolling
 o.scrolloff=8

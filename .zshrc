@@ -10,8 +10,6 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
-source ~/Repos/zsh-plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -106,11 +104,13 @@ alias v="nvim"
 alias c="clear"
 
 export PATH="$PATH:$HOME/.local/share/bob/nvim-bin/"
-export OPENAI_API_KEY="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"
-
+export PATH="$PATH:$HOME/.local/bin"
+export OPENAI_API_KEY="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"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 eval "$(zoxide init zsh)"
 alias cgs='~/cgs'
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

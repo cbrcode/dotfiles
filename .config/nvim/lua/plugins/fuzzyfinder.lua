@@ -10,5 +10,5 @@ return {
         { '<leader>fh', '<cmd>Telescope help_tags<CR>' },
         { '<leader>fm', '<cmd>Telescope man_pages<CR>' },
         { '<leader>fc', '<cmd>Telescope colorscheme<CR>' },
-    }
+    },
 }

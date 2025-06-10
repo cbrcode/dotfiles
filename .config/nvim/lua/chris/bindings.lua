@@ -3,7 +3,6 @@ local function map(m, k, v)
 end
 
 map('i', '<D-c>', '<C-c>') -- mac neovim binding
-map('n', '<leader>dm', ':Mason<CR>') -- Mason
 map('n', '<leader>nh', ':nohl<CR>') -- Hide search highlights
 map('n', '<leader>q', ':q<CR>')
 -- Window navigation simplifiying
@@ -11,9 +10,10 @@ map('n', '<C-J>', '<C-W><C-J>')
 map('n', '<C-K>', '<C-W><C-K>')
 map('n', '<C-H>', '<C-W><C-H>')
 map('n', '<C-L>', '<C-W><C-L>')
-map('n', '<CR>', '<C-W>w')
+-- map('n', '<CR>', '<C-W>w')
 map('n', '<leader>v', ':vs<CR>')
 map('n', '<leader>s', ':sp<CR>')
+map('n', '<leader>tc', ':TSContext toggle<CR>')
 
 map('n', 'cn{', 'f{ci{')
 map('n', 'cn[', 'f[ci[')

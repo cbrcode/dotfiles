@@ -61,11 +61,11 @@ return {
                 --     color_warn = { fg = colors.yellow },
                 --     color_info = { fg = colors.cyan },
                 -- },
-              }
+              },
+              {"filename"},
             },
             lualine_x = {
-                {"filename"},
-                {"%="},
+                -- {"%="},
                 { "location", },
                 { "encoding", },
                 { "filetype" },
