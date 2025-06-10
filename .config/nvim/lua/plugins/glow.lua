@@ -1,1 +1,4 @@
-return {"ellisonleao/glow.nvim", config = true, cmd = "Glow"}
+return {
+    "OXY2DEV/markview.nvim",
+    lazy = false,
+};
